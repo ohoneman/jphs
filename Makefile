@@ -1,6 +1,7 @@
 # variables
 HDOBJECTS = jphide.o bf.o
 SKOBJECTS = jpseek.o bf.o
+CROBJECTS = jpcrack.o bf.o
 
 ## flags
 CFLAGS_COMMON = -O2
@@ -31,19 +32,21 @@ PREFIX = /usr
 BINDIR = $(PREFIX)/bin
 
 # targets
-TARGETS = jphide jpseek
+TARGETS = jphide jpseek jpcrack
 all: $(TARGETS)
 jphide: $(HDOBJECTS)
 jpseek: $(SKOBJECTS)
+jpcrack: $(CROBJECTS)
 
 # object rules
 bf.o:			CFLAGS=$(BF_CFLAGS)
-jphide.o jpseek.o:	CFLAGS=$(JP_CFLAGS)
+jphide.o jpseek.o jpcrack.o:	CFLAGS=$(JP_CFLAGS)
 
 # dependencies
 bf.c: bf.h bf_config.h
 jphide.c: ltable.h version.h bf.h
 jpseek.c: ltable.h version.h bf.h
+jpcrack.c: ltable.h version.h bf.h
 
 # other targets
 clean:
@@ -51,6 +54,7 @@ clean:
 		$(TARGETS) \
 		$(HDOBJECTS) \
 		$(SKOBJECTS)
+		$(CROBJECTS)
 
 distclean: clean
 	$(RM) *~ .*~ \#*\#
