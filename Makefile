@@ -15,8 +15,10 @@ JP_CFLAGS = $(CFLAGS_COMMON) \
 	    -I./jpeg-8a
 BF_CFLAGS = $(CFLAGS_COMMON)
 
-LIBS = -ljpeg
-LDFLAGS = $(LIBS)
+#LDFLAGS = -L./jpeg-8a/.libs
+LDFLAGS = -L/usr/local/lib
+LDLIBS = -ljpeg
+
 
 ## programs
 INSTALL = install
