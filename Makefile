@@ -28,7 +28,7 @@ INSTALL_BIN = $(INSTALL) -m 0755
 INSTALL_DATA = $(INSTALL) -m 0644
 
 ## install paths
-PREFIX = /usr
+PREFIX = /usr/local
 BINDIR = $(PREFIX)/bin
 
 # targets
