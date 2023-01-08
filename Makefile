@@ -53,7 +53,7 @@ clean:
 	$(RM) \
 		$(TARGETS) \
 		$(HDOBJECTS) \
-		$(SKOBJECTS)
+		$(SKOBJECTS) \
 		$(CROBJECTS)
 
 distclean: clean
